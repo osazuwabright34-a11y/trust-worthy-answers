@@ -49,9 +49,9 @@ export function AuthPanel() {
     <main className="flex min-h-screen items-center justify-center px-5 py-12">
       <div className="w-full max-w-sm animate-rise-in">
         <div className="flex flex-col items-center text-center">
-          <img src={logo} alt="TruthAI logo" width={512} height={512} className="h-14 w-14" />
+          <img src={logo} alt="XENONAPEX ai logo" width={512} height={512} className="h-14 w-14" />
           <h1 className="mt-5 text-4xl font-semibold">
-            <span className="text-brand-gradient">TruthAI</span>
+            <span className="text-brand-gradient">XENONAPEX ai</span>
           </h1>
           <p className="mt-2 text-sm text-muted-foreground">Ask anything. Get an honest answer.</p>
         </div>

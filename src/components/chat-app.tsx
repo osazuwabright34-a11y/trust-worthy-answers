@@ -208,10 +208,10 @@ export function ChatApp({ userId, userEmail }: { userId: string; userEmail: stri
       <header className="sticky top-0 z-20 border-b border-border/70 bg-background/85 backdrop-blur-xl">
         <div className="mx-auto flex w-full max-w-4xl flex-col gap-3 px-4 py-3 sm:px-6">
           <div className="flex items-center gap-3">
-            <img src={logo} alt="TruthAI logo" width={512} height={512} className="h-9 w-9" />
+            <img src={logo} alt="XENONAPEX ai logo" width={512} height={512} className="h-9 w-9" />
             <div className="min-w-0 flex-1">
               <h1 className="text-lg font-semibold leading-tight">
-                <span className="text-brand-gradient">TruthAI</span>
+                <span className="text-brand-gradient">XENONAPEX ai</span>
               </h1>
               <p className="truncate text-xs text-muted-foreground">
                 Ask anything. Get an honest answer.
@@ -375,7 +375,7 @@ export function ChatApp({ userId, userEmail }: { userId: string; userEmail: stri
               ref={textareaRef}
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="Ask TruthAI anything…"
+              placeholder="Ask XENONAPEX ai anything…"
             />
             <PromptInputFooter className="justify-between">
               <span className="pl-1 text-xs text-muted-foreground">
@@ -385,7 +385,8 @@ export function ChatApp({ userId, userEmail }: { userId: string; userEmail: stri
             </PromptInputFooter>
           </PromptInput>
           <p className="mt-2 text-center text-xs text-muted-foreground">
-            TruthAI can be wrong. It will tell you when it isn't sure — verify anything critical.
+            XENONAPEX ai can be wrong. It will tell you when it isn't sure — verify anything
+            critical.
           </p>
         </div>
       </div>
