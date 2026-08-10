@@ -1,24 +1,55 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
+import type { Session } from "@supabase/supabase-js";
+import { supabase } from "@/integrations/supabase/client";
+import { AuthPanel } from "@/components/auth-panel";
+import { ChatApp } from "@/components/chat-app";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
+  ssr: false,
+  head: () => ({
+    meta: [
+      { title: "TruthAI — Honest answers from an AI you can trust" },
+      {
+        name: "description",
+        content:
+          "TruthAI is an AI assistant built for honesty: clear reasoning, accurate answers, and a straight 'I don't know' when it isn't sure.",
+      },
+      { property: "og:title", content: "TruthAI — Honest answers from an AI you can trust" },
+      {
+        property: "og:description",
+        content:
+          "Chat with TruthAI for clear, accurate, honest answers. Your conversation is stored privately in your account.",
+      },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
+  const [session, setSession] = useState<Session | null>(null);
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    const { data: sub } = supabase.auth.onAuthStateChange((_event, next) => {
+      setSession(next);
+    });
+    void supabase.auth.getSession().then(({ data }) => {
+      setSession(data.session);
+      setReady(true);
+    });
+    return () => sub.subscription.unsubscribe();
+  }, []);
+
+  if (!ready) {
+    return (
+      <div className="flex min-h-screen items-center justify-center">
+        <div className="h-8 w-8 animate-spin rounded-full border-2 border-border border-t-primary" />
+      </div>
+    );
+  }
+
+  if (!session) return <AuthPanel />;
+
+  return <ChatApp userId={session.user.id} userEmail={session.user.email ?? "your account"} />;
 }
