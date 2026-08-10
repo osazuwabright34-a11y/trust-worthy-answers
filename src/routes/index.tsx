@@ -9,17 +9,17 @@ export const Route = createFileRoute("/")({
   ssr: false,
   head: () => ({
     meta: [
-      { title: "TruthAI — Honest answers from an AI you can trust" },
+      { title: "XENONAPEX ai — Honest answers from an AI you can trust" },
       {
         name: "description",
         content:
-          "TruthAI is an AI assistant built for honesty: clear reasoning, accurate answers, and a straight 'I don't know' when it isn't sure.",
+          "XENONAPEX ai is an AI assistant built for honesty: clear reasoning, accurate answers, and a straight 'I don't know' when it isn't sure.",
       },
-      { property: "og:title", content: "TruthAI — Honest answers from an AI you can trust" },
+      { property: "og:title", content: "XENONAPEX ai — Honest answers from an AI you can trust" },
       {
         property: "og:description",
         content:
-          "Chat with TruthAI for clear, accurate, honest answers. Your conversation is stored privately in your account.",
+          "Chat with XENONAPEX ai for clear, accurate, honest answers. Your conversation is stored privately in your account.",
       },
     ],
   }),
