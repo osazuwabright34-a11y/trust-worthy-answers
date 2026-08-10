@@ -75,7 +75,7 @@ export const Route = createFileRoute("/api/chat")({
           const result = streamText({
             model: gateway("google/gemini-3.6-flash"),
             system: TRUTHAI_SYSTEM_PROMPT,
-            messages: convertToModelMessages(uiMessages),
+            messages: await convertToModelMessages(uiMessages),
             onFinish: async ({ text }) => {
               await persist(supabase, userId, "assistant", text.trim());
             },
