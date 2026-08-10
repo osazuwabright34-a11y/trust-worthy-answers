@@ -110,7 +110,7 @@ export function AuthPanel() {
               </Button>
 
               <p className="mt-5 text-center text-sm text-muted-foreground">
-                {mode === "signin" ? "New to TruthAI?" : "Already have an account?"}{" "}
+                {mode === "signin" ? "New to XENONAPEX ai?" : "Already have an account?"}{" "}
                 <button
                   type="button"
                   className="font-medium text-primary hover:underline"
